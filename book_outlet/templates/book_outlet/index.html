@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    All Books
+{% endblock title %}
+    
+{% block content %}
+    <ul>
+        {% for book in books %}
+            <li><a href="{% url 'book_detail' slug=book.slug %}">{{book.title}}</a> (Rating - {{book.rating}})</li> 
+        {% endfor %}
+    </ul>
+    <h2>Total books = {{ total_books}}</h2>
+    <h2>Average Rating = {{ avg_rating.rating__avg }}</h2>
+{% endblock content %}
